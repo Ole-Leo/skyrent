@@ -1,0 +1,39 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  margin: 40px 0;
+}
+
+.imgWrapper {
+  margin-bottom: 30px;
+
+  width: 372px;
+  border-radius: 4px;
+}
+
+.img {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+}
+
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: #000;
+
+  transition: color 0.25s ease-in-out;
+}
+
+.link:hover,
+.link:active {
+  color: #077252;
+}
+
+.description {
+  margin: 20px 0;
+}

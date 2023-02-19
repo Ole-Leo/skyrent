@@ -1,0 +1,32 @@
+.layout {
+  padding-left: calc(50% - 186px);
+  padding-right: calc(50% - 186px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 53px;
+}
+
+.link:link,
+.link:visited {
+  color: #727883;
+  text-decoration: none;
+
+  transition: color 0.25s ease-in-out;
+}
+
+.link:hover,
+.link:active {
+  color: #066649;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-bottom: 35px;
+}
