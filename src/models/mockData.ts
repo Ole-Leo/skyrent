@@ -12,6 +12,19 @@ export const CardData: ICard[] = [
     description:
       'Offering an exclusive Executive club and spacious rooms, this stylish hotel stands beside the River Spree on Berlin’s Friedrichstraße shopping street.',
     price: '500',
+    features_on: [
+      'Кухня',
+      'Телевизор',
+      'Задний двор',
+      'Лифт',
+      'Сейф',
+      'Рабочий стол',
+      'Балкон',
+    ],
+    features_off: ['Посудомоечная машина', 'Духовка', 'Кондиционер'],
+    host_name: 'Eustolia A. Daniel',
+    host_phone: '267-936-7078',
+    host_location: '2310 Marigold Lane FL 33131',
   },
   {
     pk: 2,
@@ -21,6 +34,19 @@ export const CardData: ICard[] = [
     description:
       'Offering an exclusive Executive club and spacious rooms, this stylish hotel stands beside the River Spree on Berlin’s Friedrichstraße shopping street.',
     price: '500',
+    features_on: [
+      'Кухня',
+      'Телевизор',
+      'Задний двор',
+      'Лифт',
+      'Сейф',
+      'Рабочий стол',
+      'Балкон',
+    ],
+    features_off: ['Посудомоечная машина', 'Духовка', 'Кондиционер'],
+    host_name: 'Eustolia A. Daniel',
+    host_phone: '267-936-7078',
+    host_location: '2310 Marigold Lane FL 33131',
   },
   {
     pk: 3,
@@ -30,5 +56,18 @@ export const CardData: ICard[] = [
     description:
       'Offering an exclusive Executive club and spacious rooms, this stylish hotel stands beside the River Spree on Berlin’s Friedrichstraße shopping street.',
     price: '500',
+    features_on: [
+      'Кухня',
+      'Телевизор',
+      'Задний двор',
+      'Лифт',
+      'Сейф',
+      'Рабочий стол',
+      'Балкон',
+    ],
+    features_off: ['Посудомоечная машина', 'Духовка', 'Кондиционер'],
+    host_name: 'Eustolia A. Daniel',
+    host_phone: '267-936-7078',
+    host_location: '2310 Marigold Lane FL 33131',
   },
 ];

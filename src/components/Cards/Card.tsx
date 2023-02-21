@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ICard } from '../../models/types';
 import styles from './styles.module.css';
 
@@ -12,9 +13,9 @@ export const Card = ({ props }: Props) => {
         <img className={styles.img} src={props.picture_url} alt={props.city} />
       </div>
       <h3 className={styles.title}>
-        <a className={styles.link} href="/">
-          <span>{props.country}</span> &rarr; <span>{props.city}</span>
-        </a>
+        <Link className={styles.link} to={`/place/${props.pk}`}>
+          {props.country} &rarr; {props.city}
+        </Link>
       </h3>
       <p className={styles.description}>{props.description}</p>
       <h3 className={styles.title}>$ {props.price} / month</h3>

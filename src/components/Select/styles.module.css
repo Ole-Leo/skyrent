@@ -1,0 +1,56 @@
+.wrapper {
+  padding: 28px 22px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+
+.select {
+  margin-bottom: 21px;
+  padding: 18px;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 20px;
+  line-height: 17px;
+
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.input {
+  margin-bottom: 25px;
+  padding: 18px;
+
+  width: 100%;
+
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 17px;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  outline: none;
+  opacity: 0.8;
+}
+
+.input::placeholder {
+  color: #d9d9d9;
+}

@@ -1,0 +1,9 @@
+.nav {
+  margin-bottom: 42px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}

@@ -1,0 +1,77 @@
+.place {
+  margin-bottom: 55px;
+}
+
+.title {
+  margin: 0 0 20px;
+
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 17px;
+  letter-spacing: -0.5px;
+}
+
+.price {
+  margin: 0 0 20px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 17px;
+}
+
+.description {
+  margin: 0 0 24px;
+
+  font-size: 18px;
+  line-height: 26px;
+
+  opacity: 0.6;
+}
+
+.imgWrapper {
+  margin-bottom: 40px;
+
+  width: 372px;
+
+  border-radius: 4px;
+}
+
+.img {
+  width: 100%;
+}
+
+.features {
+  margin: 0 0 23px;
+
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin: 0 0 30px;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 26px;
+
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.listItemOn {
+  opacity: 0.75;
+}
+
+.listItemOff {
+  opacity: 0.3;
+}

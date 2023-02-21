@@ -3,9 +3,9 @@ export interface ICard {
   picture_url: string;
   title?: string;
   country: string;
+  city: string;
   description: string;
   price: string;
-  city: string;
   features_on?: string[];
   features_off?: string[];
   host_name?: string;

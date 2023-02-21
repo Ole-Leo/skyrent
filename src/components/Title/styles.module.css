@@ -8,10 +8,12 @@
   font-weight: 700;
   font-size: 34px;
   line-height: 40px;
+  letter-spacing: -0.6px;
 }
 
 .secondary {
   font-weight: 500;
   font-size: 26px;
   line-height: 30px;
+  letter-spacing: -0.5px;
 }

@@ -1,0 +1,44 @@
+.text {
+  margin: 0 0 28px;
+  font-size: 18px;
+  line-height: 24px;
+
+  opacity: 0.8;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin: 0 0 41px;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  opacity: 0.8;
+}
+
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: #000;
+  opacity: 0.55;
+
+  transition: opacity 0.25s ease-in-out;
+}
+
+.link:hover,
+.link:active {
+  opacity: 0.75;
+}

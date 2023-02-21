@@ -3,8 +3,13 @@ import styles from './styles.module.css';
 
 type Props = {
   children: ReactNode;
+  onClick?: VoidFunction;
 };
 
-export const Button = ({ children }: Props) => {
-  return <button className={styles.button}>{children}</button>;
+export const Button = ({ children, onClick }: Props) => {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
