@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { ICard } from '../../models/types';
-import { fetchData } from '../../utils.ts/utils';
 import { baseURL } from '../../utils.ts/constants';
 import { Logo } from '../../components/Logo/Logo';
 import { Title } from '../../components/Title/Title';
@@ -11,14 +10,22 @@ import { Filter } from '../../components/Filter/Filter';
 
 import styles from './styles.module.css';
 
+import { useFetchHook } from '../../hooks/useFetchHook';
+
 export const MainPage = () => {
   const [places, setPlaces] = useState<ICard[]>([]);
+  const [list, setList] = useState<ICard[]>([]);
   const [filteredPlaces, setFilteredPlaces] = useState<ICard[]>([]);
   const [isFilterShown, setIsFilterShown] = useState(false);
 
+  const { data } = useFetchHook(baseURL);
+
   useEffect(() => {
-    fetchData(baseURL, setPlaces);
-  }, []);
+    if (data) {
+      setPlaces(data);
+      setList(data);
+    }
+  }, [data]);
 
   useEffect(() => {
     filteredPlaces.length ? setPlaces(filteredPlaces) : setPlaces([]);
@@ -44,7 +51,9 @@ export const MainPage = () => {
         </Title>
       </div>
 
-      {isFilterShown && <Filter setFilteredData={setFilteredPlaces} />}
+      {isFilterShown && (
+        <Filter list={list} setFilteredData={setFilteredPlaces} />
+      )}
       {!isFilterShown && (
         <Button onClick={clickHandler}>Подобрать недвижимость</Button>
       )}

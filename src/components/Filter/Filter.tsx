@@ -1,28 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { ICard } from '../../models/types';
+import { baseURL } from '../../utils.ts/constants';
+import { useFetchHook } from '../../hooks/useFetchHook';
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 
 import styles from './styles.module.css';
-import { baseURL } from '../../utils.ts/constants';
-import { fetchData } from '../../utils.ts/utils';
 
 type Props = {
+  list: ICard[];
   setFilteredData: Function;
 };
 
-export const Filter = ({ setFilteredData }: Props) => {
-  const [list, setList] = useState<ICard[]>([]);
+export const Filter = ({ list, setFilteredData }: Props) => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [selectValue, setSelectValue] = useState('Страна и город');
   const [isOptionsShown, setIsOptionsShown] = useState(false);
+  const searchParams = new URLSearchParams({
+    city: selectValue.split(' → ')[1] || '',
+    from: minPrice,
+    to: maxPrice,
+  });
 
-  useEffect(() => {
-    fetchData(baseURL, setList);
-  }, []);
+  const { data, fetchData } = useFetchHook(`${baseURL}?${searchParams}`);
 
-  const places = [
+  const listPlaces = [
     ...new Set(list.map(place => `${place.country} → ${place.city}`).sort()),
   ];
 
@@ -32,22 +35,15 @@ export const Filter = ({ setFilteredData }: Props) => {
   };
 
   const clickSearchHandler = () => {
-    fetchData(
-      `${baseURL}?${new URLSearchParams({
-        city: selectValue.split(' → ')[1] || '',
-        from: minPrice,
-        to: maxPrice,
-      })}
-    `,
-      setFilteredData
-    );
+    fetchData();
+    setFilteredData(data);
   };
 
   const clickCleanHandler = () => {
     setSelectValue('Страна и город');
     setMinPrice('');
     setMaxPrice('');
-    fetchData(baseURL, setFilteredData);
+    setFilteredData(list);
   };
 
   return (
@@ -64,8 +60,8 @@ export const Filter = ({ setFilteredData }: Props) => {
         </div>
         {isOptionsShown && (
           <ul className={styles.options}>
-            {places &&
-              places.map(place => (
+            {listPlaces &&
+              listPlaces.map(place => (
                 <li
                   key={place + Date.now()}
                   className={styles.option}
