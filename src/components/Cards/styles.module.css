@@ -36,4 +36,9 @@
 
 .description {
   margin: 20px 0;
+
+  font-size: 18px;
+  line-height: 26px;
+
+  opacity: 0.6;
 }

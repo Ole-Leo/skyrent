@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ICard } from '../../models/types';
+
 import styles from './styles.module.css';
 
 type Props = {
