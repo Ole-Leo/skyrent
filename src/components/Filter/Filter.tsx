@@ -34,7 +34,7 @@ export const Filter = ({ setFilteredData }: Props) => {
   const clickSearchHandler = () => {
     fetchData(
       `${baseURL}?${new URLSearchParams({
-        city: selectValue.split(' → ')[1],
+        city: selectValue.split(' → ')[1] || '',
         from: minPrice,
         to: maxPrice,
       })}
