@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useFetchHook = (url: string) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
