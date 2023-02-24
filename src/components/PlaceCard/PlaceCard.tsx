@@ -3,10 +3,9 @@ import { ICard } from '../../models/types';
 import { Button } from '../Button/Button';
 import { ReactComponent as OnIcon } from '../../assets/done.svg';
 import { ReactComponent as OffIcon } from '../../assets/close.svg';
-
-import styles from './styles.module.css';
 import { useState } from 'react';
 import { HostContacts } from '../HostContacts/HostContacts';
+import styles from './styles.module.css';
 
 type Props = {
   card: ICard;
