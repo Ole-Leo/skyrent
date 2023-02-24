@@ -12,11 +12,11 @@ type Props = {
 };
 
 export const Filter = ({ setFilteredData }: Props) => {
+  const [list, setList] = useState<ICard[]>([]);
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-  const [list, setList] = useState<ICard[]>([]);
-  const [isOptionsShown, setIsOptionsShown] = useState(false);
   const [selectValue, setSelectValue] = useState('Страна и город');
+  const [isOptionsShown, setIsOptionsShown] = useState(false);
 
   useEffect(() => {
     fetchData(baseURL, setList);
@@ -41,6 +41,13 @@ export const Filter = ({ setFilteredData }: Props) => {
     `,
       setFilteredData
     );
+  };
+
+  const clickCleanHandler = () => {
+    setSelectValue('Страна и город');
+    setMinPrice('');
+    setMaxPrice('');
+    fetchData(baseURL, setFilteredData);
   };
 
   return (
@@ -88,7 +95,12 @@ export const Filter = ({ setFilteredData }: Props) => {
         />
       </div>
 
-      <Button onClick={clickSearchHandler}>Подобрать</Button>
+      <div className={styles.buttons}>
+        <Button onClick={clickSearchHandler}>Подобрать</Button>
+        <Button type="outlined" onClick={clickCleanHandler}>
+          Очистить фильтр
+        </Button>
+      </div>
     </div>
   );
 };
