@@ -1,0 +1,10 @@
+.layout {
+  padding-left: calc(50% - 186px);
+  padding-right: calc(50% - 186px);
+}
+
+.year {
+  margin: 8px 0 0;
+  color: #000;
+  opacity: 0.5;
+}
