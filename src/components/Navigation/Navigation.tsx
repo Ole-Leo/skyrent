@@ -9,8 +9,8 @@ export const Navigation = () => {
     <nav className={styles.nav}>
       <Link to="/" className={styles.navLink}>
         <Arrow />
-        <Logo />
       </Link>
+      <Logo />
     </nav>
   );
 };

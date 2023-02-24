@@ -1,11 +1,18 @@
-import { CardData } from '../../models/mockData';
+import { ICard } from '../../models/types';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchData } from '../../utils.ts/utils';
+import { baseURL } from '../../utils.ts/constants';
 import { PlaceCard } from '../../components/PlaceCard/PlaceCard';
 import { Navigation } from '../../components/Navigation/Navigation';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export const PlacePage = () => {
   const { id } = useParams();
+  const [place, setPlace] = useState<ICard>();
+
+  useEffect(() => {
+    fetchData(`${baseURL}${id}`, setPlace);
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,7 +21,7 @@ export const PlacePage = () => {
   return (
     <>
       <Navigation />
-      <PlaceCard card={CardData[Number(id) - 1]} />
+      {place && <PlaceCard card={place} />}
     </>
   );
 };

@@ -1,19 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CardData } from '../../models/mockData';
+import { ICard } from '../../models/types';
+import { fetchData } from '../../utils.ts/utils';
+import { baseURL } from '../../utils.ts/constants';
 import { Logo } from '../../components/Logo/Logo';
 import { Title } from '../../components/Title/Title';
 import { Cards } from '../../components/Cards/Cards';
 import { Button } from '../../components/Button/Button';
-import { Select } from '../../components/Select/Select';
+import { Filter } from '../../components/Filter/Filter';
 
 import styles from './styles.module.css';
 
 export const MainPage = () => {
-  const [isSelectShown, setIsSelectShown] = useState(false);
+  const [places, setPlaces] = useState<ICard[]>([]);
+  const [filteredPlaces, setFilteredPlaces] = useState<ICard[]>([]);
+  const [isFilterShown, setIsFilterShown] = useState(false);
+
+  useEffect(() => {
+    fetchData(baseURL, setPlaces);
+  }, []);
+
+  useEffect(() => {
+    filteredPlaces.length ? setPlaces(filteredPlaces) : setPlaces([]);
+  }, [filteredPlaces]);
 
   const clickHandler = () => {
-    setIsSelectShown(!isSelectShown);
+    setIsFilterShown(!isFilterShown);
   };
 
   return (
@@ -32,12 +44,16 @@ export const MainPage = () => {
         </Title>
       </div>
 
-      {isSelectShown && <Select />}
-      {!isSelectShown && (
+      {isFilterShown && <Filter setFilteredData={setFilteredPlaces} />}
+      {!isFilterShown && (
         <Button onClick={clickHandler}>Подобрать недвижимость</Button>
       )}
 
-      <Cards data={CardData} />
+      {places.length > 0 ? (
+        <Cards data={places} />
+      ) : (
+        <p className={styles.error}>По вашему запросу вариантов не найдено</p>
+      )}
     </>
   );
 };

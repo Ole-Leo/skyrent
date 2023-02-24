@@ -39,14 +39,14 @@ export const PlaceCard = ({ card }: Props) => {
 
       <h3 className={styles.features}>Что есть внутри?</h3>
       <ul className={styles.list}>
-        {card.features_on?.map(item => (
+        {card.features_on?.split(',').map(item => (
           <li className={featuresOnStyle} key={item}>
             <OnIcon />
             <span>{item}</span>
           </li>
         ))}
 
-        {card.features_off?.map(item => (
+        {card.features_off?.split(',').map(item => (
           <li className={featuresOffStyle} key={item}>
             <OffIcon />
             <span>{item}</span>

@@ -5,9 +5,9 @@ export interface ICard {
   country: string;
   city: string;
   description: string;
-  price: string;
-  features_on?: string[];
-  features_off?: string[];
+  price: number | string;
+  features_on?: string;
+  features_off?: string;
   host_name?: string;
   host_phone?: string;
   host_location?: string;

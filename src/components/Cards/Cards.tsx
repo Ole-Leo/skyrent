@@ -17,7 +17,7 @@ export const Cards = ({ data }: Props) => {
 
   return (
     <div className={styles.cards}>
-      {cards && cards.map(card => <Card props={card} />)}
+      {cards && cards.map(card => <Card card={card} key={card.pk} />)}
     </div>
   );
 };

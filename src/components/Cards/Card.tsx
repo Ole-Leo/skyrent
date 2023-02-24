@@ -3,22 +3,22 @@ import { ICard } from '../../models/types';
 import styles from './styles.module.css';
 
 type Props = {
-  props: ICard;
+  card: ICard;
 };
 
-export const Card = ({ props }: Props) => {
+export const Card = ({ card }: Props) => {
   return (
     <div className={styles.card}>
       <div className={styles.imgWrapper}>
-        <img className={styles.img} src={props.picture_url} alt={props.city} />
+        <img className={styles.img} src={card.picture_url} alt={card.city} />
       </div>
       <h3 className={styles.title}>
-        <Link className={styles.link} to={`/place/${props.pk}`}>
-          {props.country} &rarr; {props.city}
+        <Link className={styles.link} to={`/place/${card.pk}`}>
+          {card.country} &rarr; {card.city}
         </Link>
       </h3>
-      <p className={styles.description}>{props.description}</p>
-      <h3 className={styles.title}>$ {props.price} / month</h3>
+      <p className={styles.description}>{card.description}</p>
+      <h3 className={styles.title}>$ {card.price} / month</h3>
     </div>
   );
 };
