@@ -6,6 +6,12 @@
   margin: 40px 0 66px;
 }
 
+.card:link,
+.card:visited {
+  color: #000;
+  text-decoration: none;
+}
+
 .imgWrapper {
   margin-bottom: 30px;
 
@@ -17,21 +23,18 @@
   width: 100%;
 }
 
-.title {
+.title,
+.price {
   margin: 0;
-}
 
-.link:link,
-.link:visited {
-  text-decoration: none;
   color: #000;
-
+  text-decoration: none;
   transition: color 0.25s ease-in-out;
 }
 
-.link:hover,
-.link:active {
-  color: #077252;
+.title:hover,
+.title:active {
+  color: #727883;
 }
 
 .description {

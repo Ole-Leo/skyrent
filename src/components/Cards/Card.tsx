@@ -9,17 +9,15 @@ type Props = {
 
 export const Card = ({ card }: Props) => {
   return (
-    <div className={styles.card}>
+    <Link className={styles.card} to={`/place/${card.pk}`}>
       <div className={styles.imgWrapper}>
         <img className={styles.img} src={card.picture_url} alt={card.city} />
       </div>
       <h3 className={styles.title}>
-        <Link className={styles.link} to={`/place/${card.pk}`}>
-          {card.country} &rarr; {card.city}
-        </Link>
+        {card.country} &rarr; {card.city}
       </h3>
       <p className={styles.description}>{card.description}</p>
-      <h3 className={styles.title}>$ {card.price} / month</h3>
-    </div>
+      <h3 className={styles.price}>$ {card.price} / month</h3>
+    </Link>
   );
 };

@@ -5,6 +5,8 @@ import { baseURL } from '../../utils.ts/constants';
 import { useFetchHook } from '../../hooks/useFetchHook';
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 
+import cn from 'classnames';
+
 import styles from './styles.module.css';
 
 type Props = {
@@ -55,7 +57,9 @@ export const Filter = ({ list, setFilteredData }: Props) => {
         >
           {selectValue}
           <span>
-            <Arrow />
+            <Arrow
+              className={cn(styles.arrow, isOptionsShown && styles.arrowUp)}
+            />
           </span>
         </div>
         {isOptionsShown && (
