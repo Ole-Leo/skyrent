@@ -99,3 +99,7 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.arrowUp {
+  rotate: 180deg;
+}

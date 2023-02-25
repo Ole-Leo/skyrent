@@ -32,7 +32,7 @@ export const MainPage = () => {
   }, [filteredPlaces]);
 
   const clickHandler = () => {
-    setIsFilterShown(!isFilterShown);
+    setIsFilterShown(true);
   };
 
   return (
