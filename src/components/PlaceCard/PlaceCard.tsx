@@ -27,10 +27,7 @@ export const PlaceCard = ({ card }: Props) => {
         {card.country} &rarr; {card.city}
       </h2>
       <h3 className={styles.price}>$ {card.price} / month</h3>
-      <p className={styles.description}>
-        {card.description}
-        <span className={styles.showMore}> more</span>
-      </p>
+      <p className={styles.description}>{card.description}</p>
 
       <div className={styles.imgWrapper}>
         <img className={styles.img} src={card.picture_url} alt={card.city} />

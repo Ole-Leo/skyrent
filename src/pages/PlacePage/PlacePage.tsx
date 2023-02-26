@@ -2,15 +2,16 @@ import { ICard } from '../../models/types';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { baseURL } from '../../utils.ts/constants';
+import { useFetchHook } from '../../hooks/useFetchHook';
 import { PlaceCard } from '../../components/PlaceCard/PlaceCard';
 import { Navigation } from '../../components/Navigation/Navigation';
-import { useFetchHook } from '../../hooks/useFetchHook';
+import { SkeletonLayout } from '../../components/SkeletonLayout/SkeletonLayout';
 
 export const PlacePage = () => {
   const { id } = useParams();
   const [place, setPlace] = useState<ICard>();
 
-  const { data } = useFetchHook(`${baseURL}${id}`);
+  const { data, isLoading } = useFetchHook(`${baseURL}${id}`);
 
   useEffect(() => {
     if (data) setPlace(data);
@@ -23,7 +24,7 @@ export const PlacePage = () => {
   return (
     <>
       <Navigation />
-      {place && <PlaceCard card={place} />}
+      {!isLoading ? place && <PlaceCard card={place} /> : <SkeletonLayout />}
     </>
   );
 };

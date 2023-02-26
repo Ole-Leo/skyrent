@@ -18,7 +18,7 @@ export const MainPage = () => {
   const [filteredPlaces, setFilteredPlaces] = useState<ICard[]>([]);
   const [isFilterShown, setIsFilterShown] = useState(false);
 
-  const { data } = useFetchHook(baseURL);
+  const { data, isLoading } = useFetchHook(baseURL);
 
   useEffect(() => {
     if (data) {
@@ -58,11 +58,7 @@ export const MainPage = () => {
         <Button onClick={clickHandler}>Подобрать недвижимость</Button>
       )}
 
-      {places.length > 0 ? (
-        <Cards data={places} />
-      ) : (
-        <p className={styles.error}>По вашему запросу вариантов не найдено</p>
-      )}
+      <Cards data={places} isLoading={isLoading} />
     </>
   );
 };
