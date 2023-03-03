@@ -24,7 +24,17 @@ export const PlacePage = () => {
   return (
     <>
       <Navigation />
-      {!isLoading ? place && <PlaceCard card={place} /> : <SkeletonLayout />}
+      {!isLoading ? (
+        place?.pk ? (
+          <PlaceCard card={place} />
+        ) : (
+          <p style={{ marginBottom: '66px', fontSize: '18px', opacity: '0.6' }}>
+            Локация не найдена или была удалена
+          </p>
+        )
+      ) : (
+        <SkeletonLayout />
+      )}
     </>
   );
 };
